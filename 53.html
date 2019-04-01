@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>exercicios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+
+<body>
+<div class="form-group">
+<label for="">Digite una nota</label>   
+<input type="number" id="1" class="form-control">
+<input type="number" id="2" class="form-control">
+<input type="number" id="3" class="form-control">
+<input type="number" id="4" class="form-control">
+</div>
+<button class="btn btn-primary" onclick="saida(media())">CALCULAR</button>
+
+<span id="saida"></span>
+
+<script>
+    function media(){
+        let v1 = parseFloat(document.getElementById("1").value);
+        let v2 = parseFloat(document.getElementById("2").value);
+        let v3 = parseFloat(document.getElementById("3").value);
+        let v4 = parseFloat(document.getElementById("4").value);
+        let media = (v1 + v2 + v3 + v4) / 4;
+
+        if(media >= 5){
+           return "aluno aprovado"
+        }else {
+           return "aluno reprovado"
+        }
+       
+    }
+
+
+    function saida(texto){
+     //var saida = document.getElementById("saida");
+      document.getElementById("saida").innerHTML = texto;
+    }
+</script>
+</body>
+
+</html>
