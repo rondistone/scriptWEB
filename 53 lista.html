@@ -44,6 +44,8 @@
             <button type="button" class="btn btn-primary" onclick="saida(resultado())">OK</button>
         </form>
 
+         <table class="table" id="lista"></table>
+
         <script>
             var alunos = [
                 { nome: "", media: 0, resultado: "" }
@@ -55,20 +57,34 @@
                 let n3 = parseFloat(document.getElementById("n3").value);
                 let n4 = parseFloat(document.getElementById("n4").value);
                 let media = ((n1 + n2 + n3 + n4) / 4).toFixed(2);
+
                 if (media >= 5) {
-                    alunos.push({nome:n, media: media, resultado:"Aprovado"});
+                    alunos.push({nome:n, media:parseFloat(media), resultado:"Aprovado"});
                     return "<p class='alert alert-success'><strong> Aprovado</strong> por media: " + media + "</p>";
                 } else {
-                    alunos.push({nome:n, media: media, resultado:"Reprovado"});
+                    alunos.push({nome:n, media:parseFloat(media), resultado:"Reprovado"});
                     return "<p class='alert alert-danger'><strong>Reprovado</strong> por media: " + media + "</p>";
                 }
             }
+                function listarAlunos(){
+                    let texto = "<tr><th>nome</th><th>resultado</th><td>X</td></tr>";
+                    for(let x = 0; x < alunos.length; x++){
+                    texto += "<tr><td>" + alunos[x].nome + "</td><td>" + alunos[x].resultado + "</td><td onclick='remover(" +  x + ")'>X</td></tr>";
+                }
+                document.getElementById("lista").innerHTML = texto;
+
+            }
+            function remover(p){
+                alunos.splice(p,1);
+                listarAlunos();
+            }
+
             function saida(texto) {
                 document.getElementById("saida").innerHTML = texto;
                 console.log(alunos);
+                listarAlunos();
             }
         </script>
     </main>
-</body>
-
-</html>
+  </body>
+  </html>
