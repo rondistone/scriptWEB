@@ -12,41 +12,50 @@
 </head>
 
 <body ng-app="myApp">
-    <main class="container" ng-controller="ctrl62">
-        <h3>53) Fazer um algoritmo em javascript para ler quatro valores referentes a quatro notas escolares de um aluno e imprimir
-            uma mensagem dizendo que o aluno foi aprovado, se o valor da média escolar for maior ou igual a 5. Se o aluno
-            não foi aprovado, indicar uma mensagem informando esta condição. Apresentar junto com uma das mensagens o valor
-            da média do aluno para qualquer condição.</h3>
+    <main class="container" ng-controller="ctrl65">
+        <h3>(65)Faça um algoritmo que receba o valor do salário de uma pessoa e o valor de um financiamento pretendido. Caso
+            o financiamento seja menor ou igual a 5 vezes o salário da pessoa, o algoritmo deverá escrever “Financiamento
+            Concedido”; senão, ele deverá escrever “Financiamento Negado”. Independente de conceder ou não o financiamento,
+            o algoritmo escreverá depois a frase “Obrigado por nos consultar.
+        </h3>
 
         <form>
             <div class="form-group">
-                <label for="v1">salário</label>
-                <input type="number" class="form-control" ng-model="v1" name="v1">
+                <label for="s">salário</label>
+                <input type="number" class="form-control" ng-model="s" name="s">
             </div>
             <div class="form-group">
-                <label for="v2">emprestimo</label>
-                <input type="number" class="form-control" ng-model="v2" name="v2">
+                <label for="f">emprestimo</label>
+                <input type="number" class="form-control" ng-model="f" name="f">
             </div>
-           
-            <!-- <button class="btn btn-primary">Calcular</button> -->
-        </form>
 
-        <span class="alert alert-info"> {{ operacao(v1,v2) }}</span>
-        
+        </form>
+        <br>
+        <span class="alert alert-info" > {{ operacao(s,f) }}</span>
+
         <script>
             var app = angular.module("myApp", []);
-            app.controller("ctrl62", function ($scope) {
-                $scope.operacao = function (v1,v2) {
-                    if (v1 >= 0){
-                        return "financiamento concedido";
-                        return "financiamento negado";
+            app.controller("ctrl65", function ($scope) {
+                $scope.operacao = function (s,f) {
+                    let r = (5 * s);
 
+                    if (r >= f) {
+                    return "financiamento concedido.";
                     }
-                   
+                    return "financiamento negado.";
                 }
+
             });
         </script>
+
+        <p>
+
+           <h5> Obrigado por nos consultar </h5>
+           
+        </p>
+
     </main>
+
 </body>
 
 </html>
